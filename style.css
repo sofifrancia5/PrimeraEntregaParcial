@@ -1,0 +1,350 @@
+/* con el asterisco marcamos que el estilo que asignemos sea general para todo*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #007bff;
+    --color-primario-oscuro: #0056b3;
+    --color-secundario: #6c757d;
+    --color-exito: #28a745;
+    --color-error: #dc3545;
+    --color-fondo: #f8f9fa;
+    --color-borde: #dee2e6;
+    --color-texto: #212529;
+    --color-texto-claro: #6c757d;
+}
+/*aca definimos mas especificidad para un bloque layout*/
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+/*aca definimos mas especificidad para un bloque layout*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* POSITION: STICKY - Header pegajoso. Permanece en el flujo normal hasta alcanzar top: 0, entonces se fija. El punto delante es un indicador de clase, por el tema de la especificidad*/
+
+.header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-oscuro) 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.header-sticky h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-sticky .subtitle {
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+/* POSITION: FIXED. Footer y botón flotante. Se fija a la ventana del navegador, independiente del scroll*/
+
+.footer-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--color-primario);
+}
+
+.btn-ayuda {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 90;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-exito);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-ayuda:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/*ESTRUCTURA PRINCIPAL*/
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.instrucciones {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--color-primario);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.instrucciones h2 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.formulario-contacto {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* POSITION: RELATIVE - Contenedor para posicionamiento absoluto. Establece un nuevo contexto de posicionamiento para los elementos hijos*/
+
+.grupo-campo {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.grupo-campo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-texto);
+}
+
+.grupo-campo input[type="text"],
+.grupo-campo input[type="email"],
+.grupo-campo input[type="tel"],
+.grupo-campo select,
+.grupo-campo textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--color-borde);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grupo-campo input:focus,
+.grupo-campo select:focus,
+.grupo-campo textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.grupo-campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.ayuda-texto {
+    display: block;
+    color: var(--color-texto-claro);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.grupo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.grupo-checkbox input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+}
+
+.grupo-checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.grupo-checkbox a {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+
+.grupo-checkbox a:hover {
+    color: var(--color-primario-oscuro);
+}
+
+.grupo-botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: var(--color-primario-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.btn-limpiar {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.btn-limpiar:hover {
+    background-color: #5a6268;
+}
+
+.informacion-adicional {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--color-primario);
+    margin-bottom: 2rem;
+}
+
+.informacion-adicional h2 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.informacion-adicional ul {
+    list-style: none;
+    padding: 0;
+}
+
+.informacion-adicional li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.informacion-adicional li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+
+.requerido {
+    color: var(--color-error);
+    font-weight: bold;
+    margin-left: 0.25rem;
+}
+
+
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 120px;
+    }
+
+    .header-sticky {
+        padding: 1rem;
+    }
+
+    .header-sticky h1 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    .formulario-contacto {
+        padding: 1.5rem;
+    }
+
+    .grupo-botones {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .btn-ayuda {
+        width: 45px;
+        height: 45px;
+        bottom: 90px;
+        right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .footer-info {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media print {
+    .header-sticky {
+        position: static;
+        background: none;
+        color: black;
+        border: 1px solid var(--color-borde);
+    }
+
+    .footer-info,
+    .btn-ayuda {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+        background-color: white;
+    }
+
+    .formulario-contacto {
+        box-shadow: none;
+        border: 1px solid var(--color-borde);
+    } 
+}

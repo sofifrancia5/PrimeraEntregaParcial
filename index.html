@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de contacto accesible con posicionamiento CSS">
+    <title>Formulario Accesible - AW1 Parcial 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header sticky: demuestra posicion sticky -->
+    <header class="header-sticky">
+        <h1>Formulario de Contacto Accesible</h1>
+        <p class="subtitle">Tema 2: Formularios Accesibles HTML y Posicionamiento CSS</p>
+    </header>
+
+    <main>
+        <section class="instrucciones">
+            <h2>Instrucciones</h2>
+            <p>Complete el siguiente formulario. Los campos con <span class="requerido">*</span> son obligatorios.</p>
+        </section>
+
+        <!-- Formulario principal -->
+        <form class="formulario-contacto" action="#" method="POST">
+            
+            <!-- Campo: Nombre -->
+            <div class="grupo-campo">
+                <label for="nombre">Nombre <span class="requerido">*</span></label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    required 
+                    placeholder="Ingrese su nombre completo"
+                    aria-describedby="ayuda-nombre"
+                >
+                <small id="ayuda-nombre" class="ayuda-texto">Su nombre completo es requerido</small>
+            </div>
+
+            <!-- Campo: Apellido -->
+            <div class="grupo-campo">
+                <label for="apellido">Apellido <span class="requerido">*</span></label>
+                <input 
+                    type="text" 
+                    id="apellido" 
+                    name="apellido" 
+                    required 
+                    placeholder="Ingrese su apellido"
+                >
+            </div>
+
+            <!-- Campo: Email -->
+            <div class="grupo-campo">
+                <label for="email">Correo Electrónico <span class="requerido">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    placeholder="usuario@ejemplo.com"
+                    aria-describedby="ayuda-email"
+                >
+                <small id="ayuda-email" class="ayuda-texto">Formato: usuario@dominio.com</small>
+            </div>
+
+            <!-- Campo: Teléfono -->
+            <div class="grupo-campo">
+                <label for="telefono">Teléfono</label>
+                <input 
+                    type="tel" 
+                    id="telefono" 
+                    name="telefono" 
+                    placeholder="+54 9 11 1234-5678"
+                >
+                <small class="ayuda-texto">Opcional - Formato: +país área teléfono</small>
+            </div>
+
+            <!-- Campo: Asunto -->
+            <div class="grupo-campo">
+                <label for="asunto">Asunto <span class="requerido">*</span></label>
+                <select id="asunto" name="asunto" required>
+                    <option value="">-- Seleccione un asunto --</option>
+                    <option value="consulta">Consulta general</option>
+                    <option value="soporte">Soporte técnico</option>
+                    <option value="sugerencia">Sugerencia</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Campo: Mensaje -->
+            <div class="grupo-campo">
+                <label for="mensaje">Mensaje <span class="requerido">*</span></label>
+                <textarea 
+                    id="mensaje" 
+                    name="mensaje" 
+                    rows="6" 
+                    required 
+                    placeholder="Escriba su mensaje aquí..."
+                    maxlength="500"
+                ></textarea>
+                <small class="ayuda-texto">Máximo 500 caracteres</small>
+            </div>
+
+            <!-- Checkbox: Términos -->
+            <div class="grupo-campo grupo-checkbox">
+                <input 
+                    type="checkbox" 
+                    id="terminos" 
+                    name="terminos" 
+                    required
+                >
+                <label for="terminos">
+                    Acepto los <a href="#" aria-label="términos y condiciones">términos y condiciones</a>
+                    <span class="requerido">*</span>
+                </label>
+            </div>
+
+            <!-- Checkbox: Newsletter -->
+            <div class="grupo-campo grupo-checkbox">
+                <input 
+                    type="checkbox" 
+                    id="newsletter" 
+                    name="newsletter"
+                >
+                <label for="newsletter">Deseo recibir información sobre novedades</label>
+            </div>
+
+            <!-- Botones -->
+            <div class="grupo-botones">
+                <button type="submit" class="btn btn-enviar">Enviar Formulario</button>
+                <button type="reset" class="btn btn-limpiar">Limpiar</button>
+            </div>
+        </form>
+
+        <!-- Información adicional -->
+        <section class="informacion-adicional">
+            <h2>Conceptos Demostrados</h2>
+            <ul>
+                <li><strong>Vinculación explícita:</strong> &lt;label for="id"&gt; conectada con &lt;input id="id"&gt;</li>
+                <li><strong>Validación nativa:</strong> required, type="email" sin JavaScript</li>
+                <li><strong>Accesibilidad WCAG:</strong> aria-describedby, aria-label</li>
+                <li><strong>Position sticky:</strong> Header pegajoso al desplazarse</li>
+                <li><strong>Position absolute:</strong> Mensajes de ayuda sin afectar layout</li>
+                <li><strong>Position fixed:</strong> Botón flotante visible siempre</li>
+                <li><strong>Z-index:</strong> Control de capas jerárquicas</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer fixed: position: fixed + z-index -->
+    <footer class="footer-info">
+        <p>© 2026 Aplicaciones Web 1 | Parcial 1 - Tema 2</p>
+    </footer>
+
+    <!-- Botón flotante: position: fixed -->
+    <button class="btn-ayuda" aria-label="Abrir panel de ayuda" title="¿Necesita ayuda?">
+        <span class="icono-ayuda">?</span>
+    </button>
+</body>
+</html>
